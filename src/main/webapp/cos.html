@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>otakuworld</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+    <div data-role="content">
+        <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li>
+                    <a href="#" data-transition="none" data-theme="" data-icon="check" class="ui-btn-active" id="nav1">
+                        A: Sona
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-transition="none" data-theme="" data-icon="check" id="nav2">
+                        B: Akali
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="img1">
+	        <h3>
+	            Sona(英雄联盟)
+	        </h3>
+	        <a href="#">
+	                <img style="width: 100%; display: block;" src="http://ww3.sinaimg.cn/large/dd7aac41jw1e7j3w0gio2j20kk0e4tc4.jpg">
+	        </a>
+	        <a data-role="button" data-transition="none" data-theme="e" href="#" data-icon="star" data-iconpos="left" id="img1_btn">
+	            顺手点个赞
+	        </a>
+    	</div>
+    	<div id="img2">
+	        <h3>
+	            Akali(英雄联盟)
+	        </h3>
+	        <a href="#">
+	                <img style="width: 100%; display: block;" src="http://ww2.sinaimg.cn/large/dd7aac41jw1e7j3w325u5j20kk0d5gqo.jpg">
+	        </a>
+	        <a data-role="button" data-transition="none" data-theme="e" href="javascript:void(0)" data-icon="star" data-iconpos="left" id="img2_btn">
+	            顺手点个赞
+	        </a>
+    	</div>
+    </div>
+</div>
+
+<script>
+$(function(){
+  
+  $( "#img2" ).hide();
+  $( "#nav1" ).bind( "tap", function(event){
+  	if($( "#img1" ).is(":hidden")){
+    	$( "#img2" ).hide();
+    	$( "#img1" ).show();
+    }
+  } );
+  $( "#nav2" ).bind( "tap", function(){
+  	if($( "#img2" ).is(":hidden")){
+    	$( "#img1" ).hide();
+    	$( "#img2" ).show();
+    }
+  } );
+  $( "#img1_btn" ).bind( "tap", function(event){
+  	$("#img1_btn").addClass('ui-disabled');
+  });
+  $( "#img2_btn" ).bind( "tap", function(event){
+  	$("#img2_btn").addClass('ui-disabled');
+  });
+});
+</script>
+
+</body>
+</html>
