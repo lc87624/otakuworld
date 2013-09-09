@@ -1,4 +1,4 @@
-package me.gemoji.weixin.otakuworld.servlet;
+package me.gemoji.weixin.otakuworld.servlet.cron;
 
 
 import java.io.IOException;
