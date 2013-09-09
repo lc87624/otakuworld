@@ -1,4 +1,4 @@
-package me.gemoji.weixin.otakuworld;
+package me.gemoji.weixin.otakuworld.servlet.cron;
 
 
 import java.io.File;

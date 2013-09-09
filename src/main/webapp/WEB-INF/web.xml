@@ -5,18 +5,25 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+	<servlet>
+	    <servlet-name>weixin</servlet-name>
+	    <servlet-class>me.gemoji.weixin.otakuworld.servlet.WeixinServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>weixin</servlet-name>
+	    <url-pattern>/weixin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>crawler</servlet-name>
+	    <servlet-class>me.gemoji.weixin.otakuworld.servlet.cron.CrawlerCronServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>crawler</servlet-name>
+	    <url-pattern>/crawler</url-pattern>
+	</servlet-mapping>
 
-
- <servlet>
-    <servlet-name>weixin</servlet-name>
-    <servlet-class>me.gemoji.weixin.otakuworld.WeixinServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>weixin</servlet-name>
-    <url-pattern>/weixin</url-pattern>
-</servlet-mapping>
-
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
