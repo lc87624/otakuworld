@@ -3,69 +3,47 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.gemoji.weixin</groupId>
 	<artifactId>otakuworld</artifactId>
-	<version>2</version>
+	<version>1.0.0</version>
 	<name>otakuworld</name>
 	<packaging>war</packaging>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.10</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.10</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
-		<dependency>
-			<groupId>com.baidu.bce.javaruntime</groupId>
-			<artifactId>bce-api-util-local</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j-adapter</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.baidu.bce.javaruntime</groupId>
-			<artifactId>bae-sdk-local</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.baidu.bce.javaruntime</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.18</version>
-			<classifier>bin</classifier>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.baidu.bce.javaruntime</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.1.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.baidu.bce.javaruntime</groupId>
-			<artifactId>httpcore</artifactId>
-			<version>4.1</version>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -75,11 +53,6 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-			<version>1.8</version>
 		</dependency>
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -108,28 +81,17 @@
 		    <type>jar</type>
 		    <scope>compile</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>me.chanjar</groupId>
+			<artifactId>weixin-java-mp</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>baemaven</id>
-			<name>BAE Maven</name>
-			<url>http://maven.duapp.com/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>baemaven</id>
-			<name>BAE Maven</name>
-			<url>http://maven.duapp.com/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
+
 	<build>
+		<finalName>otakuworld</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -144,33 +106,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>com.baidu.bae.maven.jetty</groupId>
-				<artifactId>bae-maven-jetty-plugin</artifactId>
-				<version>8.0.0.M3</version>
-				<configuration>
-					<jettyport>8080</jettyport>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.baidu.bae.maven</groupId>
-				<artifactId>bae-maven-plugin</artifactId>
-				<version>1.0.0.0</version>
-				<executions>
-					<execution>
-						<id>baedeploy</id>
-						<phase>install</phase>
-						<goals>
-							<goal>baedeploy</goal>
-						</goals>
-						<configuration>
-							<changepass>false</changepass>
-							<appid>appid06r0e57s7s</appid>
-							<version>2</version>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
+
 </project>
